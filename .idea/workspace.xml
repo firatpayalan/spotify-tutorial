@@ -24,8 +24,8 @@
       <file leaf-file-name="SearchPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/firat/client/ui/SearchPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1670">
-              <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+            <state relative-caret-position="344">
+              <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1206,8 +1206,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firat/client/ui/SearchPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1670">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="344">
+          <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
