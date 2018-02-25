@@ -1,11 +1,24 @@
 package com.firat.server.data;
 
 import com.google.gson.Gson;
+import io.swagger.annotations.ApiModelProperty;
 
 public class SearchRequest {
+    @ApiModelProperty(value = "Search query keywords and optional field filters and operators."
+            ,required = true
+            ,example = "şebnem ferah")
     private String query;
+    @ApiModelProperty(value = "A comma-separated list of item types to search across. Valid types is only the album"
+            ,required = true
+            ,example = "album")
     private String type;
+    @ApiModelProperty(value = "Maximum number of results to return."
+            ,required = true
+            ,example = "10")
     private int limit;
+    @ApiModelProperty(value = "The index of the first result to return."
+            ,required = true
+            ,example = "0")
     private int offset;
 
     public SearchRequest() { }

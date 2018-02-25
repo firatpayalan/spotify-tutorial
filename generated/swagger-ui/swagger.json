@@ -1,0 +1,236 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The World is Yours",
+    "version" : "v01",
+    "title" : "Album Search API",
+    "termsOfService" : "http://www.yfpayalan.com",
+    "contact" : {
+      "name" : "yanakson",
+      "url" : "http://www.yfpayalan.com",
+      "email" : "yfpayalan@gmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "http://localhost:8080",
+  "basePath" : "/album",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/album/search" : {
+      "post" : {
+        "summary" : "/search",
+        "description" : "This service has restricted to album typed queries.",
+        "operationId" : "search",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Simple Album API request object",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/SearchRequest"
+          }
+        }, {
+          "name" : "Content-Type",
+          "in" : "header",
+          "description" : "Album API only accepts application/json",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/SearchResponse"
+            }
+          },
+          "403" : {
+            "description" : "Connection between Spotify and the server may drop !!!"
+          },
+          "500" : {
+            "description" : "OMG!!! Something occurred internally. Call The Godfather !!!"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Albums" : {
+      "type" : "object",
+      "properties" : {
+        "href" : {
+          "type" : "string"
+        },
+        "items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Item"
+          }
+        },
+        "limit" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "next" : {
+          "type" : "object"
+        },
+        "offset" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "previous" : {
+          "type" : "object"
+        },
+        "total" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Artist" : {
+      "type" : "object",
+      "properties" : {
+        "external_urls" : {
+          "$ref" : "#/definitions/ExternalUrls"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "uri" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ExternalUrls" : {
+      "type" : "object",
+      "properties" : {
+        "spotify" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ExternalUrls_" : {
+      "type" : "object",
+      "properties" : {
+        "spotify" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Image" : {
+      "type" : "object",
+      "properties" : {
+        "height" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "url" : {
+          "type" : "string"
+        },
+        "width" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Item" : {
+      "type" : "object",
+      "properties" : {
+        "album_type" : {
+          "type" : "string"
+        },
+        "artists" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Artist"
+          }
+        },
+        "available_markets" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "external_urls" : {
+          "$ref" : "#/definitions/ExternalUrls_"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "images" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Image"
+          }
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "release_date" : {
+          "type" : "string"
+        },
+        "release_date_precision" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "uri" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SearchRequest" : {
+      "type" : "object",
+      "required" : [ "limit", "offset", "query", "type" ],
+      "properties" : {
+        "query" : {
+          "type" : "string",
+          "example" : "şebnem ferah",
+          "description" : "Search query keywords and optional field filters and operators."
+        },
+        "type" : {
+          "type" : "string",
+          "example" : "album",
+          "description" : "A comma-separated list of item types to search across. Valid types is only the album"
+        },
+        "limit" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : "10",
+          "description" : "Maximum number of results to return."
+        },
+        "offset" : {
+          "type" : "integer",
+          "format" : "int32",
+          "example" : "0",
+          "description" : "The index of the first result to return."
+        }
+      }
+    },
+    "SearchResponse" : {
+      "type" : "object",
+      "properties" : {
+        "albums" : {
+          "$ref" : "#/definitions/Albums"
+        }
+      }
+    }
+  }
+}

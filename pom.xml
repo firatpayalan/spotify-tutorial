@@ -62,6 +62,11 @@
             <version>20171018</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-core</artifactId>
+            <version>1.5.16</version>
+        </dependency>
     </dependencies>
 
 
@@ -96,6 +101,49 @@
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <apiSources>
+                        <apiSource>
+                            <springmvc>true</springmvc>
+                            <locations>com.firat.server</locations>
+                            <schemes>http</schemes>
+                            <host>http://localhost:8080</host>
+                            <basePath>/album</basePath>
+                            <info>
+                                <title>Album Search API</title>
+                                <version>v01</version>
+                                <description>The World is Yours</description>
+                                <termsOfService>
+                                    http://www.yfpayalan.com
+                                </termsOfService>
+                                <contact>
+                                    <email>yfpayalan@gmail.com</email>
+                                    <name>yanakson</name>
+                                    <url>http://www.yfpayalan.com</url>
+                                </contact>
+                                <license>
+                                    <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+                                    <name>Apache 2.0</name>
+                                </license>
+                            </info>
+                            <swaggerDirectory>generated/swagger-ui</swaggerDirectory>
+                            <outputFormats>json,yaml</outputFormats>
+                        </apiSource>
+                    </apiSources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>generate</goal>
                         </goals>
                     </execution>
                 </executions>
