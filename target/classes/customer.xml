@@ -1,0 +1,29 @@
+<customer>
+    <information>
+        <name>John</name>
+        <surname>Doe</surname>
+        <age>25</age>
+        <extra>
+            <eye>blue</eye>
+            <hair>yellow</hair>
+        </extra>
+    </information>
+    <information>
+        <name>Jayne</name>
+        <surname>Doe</surname>
+        <age>26</age>
+        <extra>
+            <eye>black</eye>
+            <hair>black</hair>
+        </extra>
+    </information>
+    <information>
+        <name>Sully</name>
+        <surname>O-Sullivan</surname>
+        <age>33</age>
+        <extra>
+            <eye>brown</eye>
+            <hair>black</hair>
+        </extra>
+    </information>
+</customer>
